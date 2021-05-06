@@ -151,10 +151,11 @@ systemctl start nginx
 create nginx config file.
 
 ```commandline
+sudo nano /root/myproject.conf_bak
 sudo nano /etc/nginx/sites-enabled/myproject.conf
 ```
 
-fill the file following contents.
+fill the files following contents.
 
 ```.editorconfig
 server {
@@ -196,6 +197,13 @@ ln -s /snap/bin/certbot /usr/bin/certbot
 certbot --nginx
 
 certbot --nginx  --agree-tos --register-unsafely-without-email -d $YOUR_DOMAIN_NAME www.$YOUR_DOMAIN_NAME
+```
+
+to check
+```commandline
+cd /etc/letsencrypt/live
+cd $YOUR_DOMAIN_NAME
+cat cert.pem
 ```
 
 ### 20 Create Python Service File
